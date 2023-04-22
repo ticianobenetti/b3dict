@@ -1,0 +1,34 @@
+#!/usr/bin/python
+
+####################################################################################################################
+#   B-Tree Dictionary                                                                    author: Ticiano Benetti   #
+####################################################################################################################
+#                                                                                                                  #
+# Description: This class implements a common dictionary in python, with a B-tree behind it. Tests show that it's  #
+#              eight times faster than grep for search. I have tested it up to 100 million keys.                   #
+#                                                                                                                  #
+# Features:                                                                                                        #
+#           - Node cache to save disk seeks with hit ratio of 40%                                                  #
+#           - Ballance in thread and split/merge modes                                                             #
+#           - Statistics for splits, merges, keys, levels, cache hit and miss, thread ballances to left and right. #
+#           - Behaves as iterator, in both direct and reverse order                                                #
+#           - On insertion, if key already exists, it will update data                                             #
+#           - On deletion and read, if key doen't exist, raises exception                                          #
+#           - Consistency check when using an existing b-tree                                                      #
+#           - Stores data as JSON                                                                                  #
+#           - Keeps track and reuses free space to avoid fragmentation. Shrinks file if too many free space.       #
+#                                                                                                                  #
+# Usage:                                                                                                           #
+#           - Open existing tree file:  my_tree = b3dict( filename )                                               #
+#           - Create new tree file:     my_tree = b3dict( filename, num_keys, key_size, data_size )                #
+#           - Adding or Updating:       my_tree[key] = data                                                        #
+#           - Removing items:           del my_tree[key]                                                           #
+#           - Reading data              data  = my_tree[key]                                                       #
+#           - Iterate in direct order:  for key in my_tree:                                                        #
+#           - Iterate in reverse order: for key in reversed( my_tree ):                                            #
+#                                                                                                                  #
+# Methods:                                                                                                         #
+#           - check_consistency()       Scans the tree looking for inconsistencies in pointers and keys.           #
+#           - stats()                   Returns dictionary with all the statistics.                                #
+#                                                                                                                  #
+####################################################################################################################
