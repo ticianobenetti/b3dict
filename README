@@ -27,6 +27,6 @@
 #                                                                                                                  #
 # Methods:                                                                                                         #
 #           - check_consistency()       Scans the tree looking for inconsistencies in pointers and keys.           #
-#           - stats()                   Returns dictionary with all the statistics.                                #
+#           - stats()                   Returns dictionary statistics.                                             #
 #                                                                                                                  #
 ####################################################################################################################
